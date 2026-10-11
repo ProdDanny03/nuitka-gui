@@ -3,12 +3,10 @@ name = "nuitka-gui"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-authors = [
-    { name = "ProdDanny03", email = "proddanny03@gmail.com" }
-]
 requires-python = ">=3.14"
+authors = [{ name = "ProdDanny03", email = "proddanny03@gmail.com" }]
 dependencies = [
-    "pyside6>=6.12.0",
+  "pyside6>=6.12.0",
 ]
 
 [project.scripts]
