@@ -50,7 +50,7 @@ once, then put it somewhere on your `PATH`.
 1. Set up the virtual environment and sync dependencies:
 
    ```powershell
-   .\init.ps1
+   .\scripts\init.ps1
    ```
 
    or
@@ -64,7 +64,7 @@ once, then put it somewhere on your `PATH`.
 2. Install Nuitka into the environment:
 
    ```powershell
-   .\nuitka.ps1
+   .\scripts\nuitka.ps1
    ```
 
    or
@@ -82,7 +82,7 @@ once, then put it somewhere on your `PATH`.
 3. Build the executable:
 
    ```powershell
-   .\build.ps1
+   .\scripts\build.ps1
 
    ```
 
@@ -120,7 +120,7 @@ once, then put it somewhere on your `PATH`.
    any project:
 
    ```powershell
-   .\path.ps1 -Add C:\Users\USERPROFILE\AppData\Local\NuitkaGui
+   .\scripts\path.ps1 -Add C:\Users\USERPROFILE\AppData\Local\NuitkaGui
    ```
 
    Pass `-Remove` instead to take the folder back off `PATH`. The change is
@@ -177,6 +177,11 @@ src/nuitka_gui/
     sources.py       Guesses the entry script and default output folder
 assets/
   icon.ico           Application icon
+scripts/
+  init.ps1           Create the `.venv` and sync dependencies
+  nuitka.ps1         Install Nuitka into the project environment
+  build.ps1          Compile the GUI itself into `dist/nuitka-gui.exe`
+  path.ps1           Add or remove a folder on the user `PATH`
 ```
 
 The modules that decide what the command line looks like (`build/commandline.py`,
@@ -185,12 +190,12 @@ their behaviour can be checked with a plain test.
 
 ## Scripts
 
-| Script       | Purpose                                                          |
-| ------------ | ---------------------------------------------------------------- |
-| `init.ps1`   | Create the `.venv` and sync dependencies.                        |
-| `nuitka.ps1` | Install Nuitka into the project environment.                     |
-| `build.ps1`  | Compile the GUI itself into `dist/nuitka-gui.exe`.               |
-| `path.ps1`   | Add (`-Add`) or remove (`-Remove`) a folder on your user `PATH`. |
+| Script             | Purpose                                                          |
+| ------------------ | ---------------------------------------------------------------- |
+| `scripts/init.ps1`   | Create the `.venv` and sync dependencies.                      |
+| `scripts/nuitka.ps1` | Install Nuitka into the project environment.                   |
+| `scripts/build.ps1`  | Compile the GUI itself into `dist/nuitka-gui.exe`.             |
+| `scripts/path.ps1`   | Add (`-Add`) or remove (`-Remove`) a folder on your user `PATH`. |
 
 ## License
 
