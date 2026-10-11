@@ -84,7 +84,7 @@ once, then put it somewhere on your `PATH`.
    from any project. For example:
 
    ```powershell
-   $gui = "$env:LOCALAPPDATA\nuitka-gui"
+   $gui = "$env:LOCALAPPDATA\NuitkaGui"
    New-Item -ItemType Directory -Force -Path $gui
    Copy-Item .\dist\nuitka-gui.exe -Destination $gui -Force
    ```
