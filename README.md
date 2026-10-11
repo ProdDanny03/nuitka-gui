@@ -190,11 +190,11 @@ their behaviour can be checked with a plain test.
 
 ## Scripts
 
-| Script             | Purpose                                                          |
-| ------------------ | ---------------------------------------------------------------- |
-| `scripts/init.ps1`   | Create the `.venv` and sync dependencies.                      |
-| `scripts/nuitka.ps1` | Install Nuitka into the project environment.                   |
-| `scripts/build.ps1`  | Compile the GUI itself into `dist/nuitka-gui.exe`.             |
+| Script               | Purpose                                                          |
+| -------------------- | ---------------------------------------------------------------- |
+| `scripts/init.ps1`   | Create the `.venv` and sync dependencies.                        |
+| `scripts/nuitka.ps1` | Install Nuitka into the project environment.                     |
+| `scripts/build.ps1`  | Compile the GUI itself into `dist/nuitka-gui.exe`.               |
 | `scripts/path.ps1`   | Add (`-Add`) or remove (`-Remove`) a folder on your user `PATH`. |
 
 ## License
