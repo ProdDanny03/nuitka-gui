@@ -78,7 +78,7 @@ once, then put it somewhere on your `PATH`.
     --low-memory `
     --remove-output `
     --windows-console-mode=disable `
-    --zig `
+    --zig ` # Replace '--zig' with '--msvc=latest' if zig throws an error
     --assume-yes-for-downloads `
     --include-windows-runtime-dlls=yes `
     --enable-plugin=pyside6 `
@@ -86,7 +86,6 @@ once, then put it somewhere on your `PATH`.
     --output-dir=dist `
     --output-filename=nuitka-gui.exe `
     .\src\nuitka_gui\main.py
-   # Replace '--zig' with '--msvc=latest' if zig throws an error
    ```
 
    This wraps Nuitka with `--onefile`, the PySide6 plugin, the app icon and the
