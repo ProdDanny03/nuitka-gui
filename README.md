@@ -52,7 +52,9 @@ once, then put it somewhere on your `PATH`.
    ```powershell
    .\init.ps
    ```
+
    or
+
    ```powershell
    # OR
    uv venv .\.venv
