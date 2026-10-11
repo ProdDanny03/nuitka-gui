@@ -65,7 +65,11 @@ once, then put it somewhere on your `PATH`.
 
    ```powershell
    .\nuitka.ps1
-   # OR
+   ```
+
+   or
+
+   ```powershell
    $nuitka = Test-Path '.\.venv\Scripts\nuitka.cmd'
    if (-not $nuitka) {
        uv pip install pip
@@ -79,7 +83,12 @@ once, then put it somewhere on your `PATH`.
 
    ```powershell
    .\build.ps1
-   # OR
+
+   ```
+
+   or
+
+   ```powershell
    uv --no-progress run python -m nuitka `
     --onefile `
     --low-memory `
