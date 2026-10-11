@@ -50,7 +50,10 @@ once, then put it somewhere on your `PATH`.
 1. Set up the virtual environment and sync dependencies:
 
    ```powershell
-   .\init.ps1
+   .\init.ps
+   ```
+   or
+   ```powershell
    # OR
    uv venv .\.venv
    uv sync
@@ -110,7 +113,7 @@ Run the executable from the folder of the project you want to compile, so the
 build picks up that project's environment:
 
 ```powershell
-cd C:\path\to\the\project\to\compile 
+cd C:\path\to\the\project\to\compile
 # Or launch terminal from project directory
 nuitka-gui
 ```
@@ -162,11 +165,11 @@ their behaviour can be checked with a plain test.
 
 ## Scripts
 
-| Script         | Purpose                                                   |
-| -------------- | --------------------------------------------------------- |
-| `init.ps1`     | Create the `.venv` and sync dependencies.                 |
-| `nuitka.ps1`   | Install Nuitka into the project environment.              |
-| `build.ps1`    | Compile the GUI itself into `dist/nuitka-gui.exe`.        |
+| Script       | Purpose                                            |
+| ------------ | -------------------------------------------------- |
+| `init.ps1`   | Create the `.venv` and sync dependencies.          |
+| `nuitka.ps1` | Install Nuitka into the project environment.       |
+| `build.ps1`  | Compile the GUI itself into `dist/nuitka-gui.exe`. |
 
 ## License
 
