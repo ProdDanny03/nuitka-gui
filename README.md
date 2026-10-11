@@ -140,6 +140,8 @@ cd C:\path\to\the\project\to\compile
 nuitka-gui
 ```
 
+![Demo animation](./screenshots/example.gif)
+
 The app works out of its launch directory, so it looks for `main.py` and a `dist`
 folder there and runs Nuitka through `uv run` inside that project.
 
