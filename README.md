@@ -1,0 +1,119 @@
+# Nuitka GUI
+
+A small PySide6 desktop front end for compiling Python programs with
+[Nuitka](https://nuitka.net/). Fill in the fields, and the app assembles the
+Nuitka command line for you, runs it in your project's `uv` environment, and
+streams the output live.
+
+## Features
+
+- **One command line, built for you.** Pick your script, output folder and exe
+  name; the app turns them into a single `nuitka` invocation.
+- **Checkbox options.** Common Nuitka flags such as `--onefile`,
+  `--standalone`, `--windows-console-mode=disable`, `--msvc=latest`, `--zig`,
+  `--low-memory`, and more, with sensible defaults.
+- **Guarded C backends.** `--zig` and `--msvc=latest` cannot both be on, and
+  the app warns you if they are.
+- **Data files.** Include a single file or a whole folder via
+  `--include-data-files` / `--include-data-dir`, with an optional destination
+  name inside the app.
+- **Plugin picker.** Lists the plugins your installed Nuitka offers and lets you
+  tick the ones to enable.
+- **Icon support.** Take the app icon from a `.ico` or another `.exe`.
+- **Job count sized to your machine.** Defaults to a core count capped by
+  available RAM, since each C compiler process can hold hundreds of MB.
+- **Live build log.** Output follows the build while you are at the bottom and
+  stays put once you scroll up.
+- **Cancellable builds.** Cancel kills the whole process tree (Nuitka's `cl.exe`
+  and Scons children included), not just the direct child.
+- **Frozen-build fix.** Works around a PySide6 signal patch that otherwise
+  segfaults the Nuitka-compiled app on the first `QProcess` signal.
+
+## Requirements
+
+- Windows
+- Python 3.14+
+- [uv](https://docs.astral.sh/uv/)
+- PySide6 6.12+
+- Nuitka (installed into the project environment)
+
+The app runs Nuitka through `uv run` in the folder it was launched from, so the
+build uses that project's environment rather than whatever is on `PATH`.
+
+## Installation
+
+The GUI is meant to be used as a built executable, not run from source. Build it
+once, then put it somewhere on your `PATH`.
+
+1. Set up the virtual environment and sync dependencies:
+
+   ```powershell
+   .\init.ps1
+   ```
+
+2. Install Nuitka into the environment:
+
+   ```powershell
+   .\nuitka.ps1
+   ```
+
+3. Build the executable:
+
+   ```powershell
+   .\build.ps1
+   ```
+
+   This wraps Nuitka with `--onefile`, the PySide6 plugin, the app icon and the
+   Windows runtime DLLs, writing `dist\nuitka-gui.exe`.
+
+4. Copy the executable into a folder that is on your `PATH`, so you can call it
+   from any project. For example:
+
+   ```powershell
+   $gui = "$env:LOCALAPPDATA\nuitka-gui"
+   New-Item -ItemType Directory -Force -Path $gui
+   Copy-Item .\dist\nuitka-gui.exe -Destination $gui -Force
+   ```
+
+   Add `$gui` to `PATH` if it is not already there.
+
+## Usage
+
+Run the executable from the folder of the project you want to compile, so the
+build picks up that project's environment:
+
+```powershell
+cd C:\path\to\the\project\to\compile 
+nuitka-gui
+```
+
+The app works out of its launch directory, so it looks for `main.py` and a `dist`
+folder there and runs Nuitka through `uv run` inside that project.
+
+Then, in the window:
+
+1. **Select a Python file** — the entry script to compile (e.g. `main.py`). The
+   app probes the output folder and its `src` directory to pre-fill this.
+2. **Select an output directory** — defaults to a `dist` folder next to the
+   launch directory when one exists.
+3. **Set the exe name** — defaults to the script's own name.
+4. **Choose options** — tick the Nuitka flags you want, or leave the defaults.
+5. **Add data** — optionally include a file or folder and name it inside the app.
+6. **Pick plugins / an icon** — as needed.
+7. **Set the job count** — `Jobs Auto` uses one per core, capped by RAM.
+8. Click **Compile**, and watch the log. **Cancel** stops the build.
+
+The generated `nuitka` command is written to the log so you can copy and rerun
+it yourself.
+
+## Scripts
+
+| Script         | Purpose                                                   |
+| -------------- | --------------------------------------------------------- |
+| `init.ps1`     | Create the `.venv` and sync dependencies.                 |
+| `nuitka.ps1`   | Install Nuitka into the project environment.              |
+| `build.ps1`    | Compile the GUI itself into `dist/nuitka-gui.exe`.        |
+
+## License
+
+No license has been specified for this project yet.
