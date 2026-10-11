@@ -13,7 +13,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from nuitka_gui.toolchain import Plugin
+from nuitka_gui.build.toolchain import Plugin
 
 
 def build_plugin_dialog(

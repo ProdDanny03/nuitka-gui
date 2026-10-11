@@ -26,8 +26,8 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from nuitka_gui import (
-    BuildProcess,
+from nuitka_gui.build.buildproc import BuildProcess
+from nuitka_gui.build.commandline import (
     BuildRequest,
     build_arguments,
     data_fields,
@@ -37,12 +37,17 @@ from nuitka_gui import (
     quote_notes,
     safe_value,
 )
-from nuitka_gui.host import default_jobs, launch_dir, logical_cores
-from nuitka_gui.logview import BuildLog
-from nuitka_gui.options import build_args, data_args, off_by_default
-from nuitka_gui.plugindialog import build_plugin_dialog
-from nuitka_gui.sources import default_output, find_main
-from nuitka_gui.toolchain import Plugin, list_plugins, nuitka_command, show_command
+from nuitka_gui.build.options import build_args, data_args, off_by_default
+from nuitka_gui.build.toolchain import (
+    Plugin,
+    list_plugins,
+    nuitka_command,
+    show_command,
+)
+from nuitka_gui.system.host import default_jobs, launch_dir, logical_cores
+from nuitka_gui.system.sources import default_output, find_main
+from nuitka_gui.ui.logview import BuildLog
+from nuitka_gui.ui.plugindialog import build_plugin_dialog
 
 
 class NuitkaApp(QWidget):

@@ -106,6 +106,32 @@ Then, in the window:
 The generated `nuitka` command is written to the log so you can copy and rerun
 it yourself.
 
+## Project layout
+
+```
+src/nuitka_gui/
+  __init__.py        Public API and version
+  main.py            Entry point; restores PySide6 signal methods when frozen
+  ui/                Everything the user sees
+    gui.py           The main window and its wiring
+    logview.py       The auto-following build log pane
+    plugindialog.py  The plugin picker popup
+  build/             Turning the fields into a command line and running it
+    commandline.py   Turns window state into one Nuitka argument list (no Qt)
+    options.py       The checkbox catalog and which ones start enabled
+    buildproc.py     Runs the build as a child process and stops it again
+    toolchain.py     Finds the shell, uv and Nuitka; lists plugins
+  system/            Probing the machine and locating files
+    host.py          RAM and core counts for the job default
+    sources.py       Guesses the entry script and default output folder
+assets/
+  icon.ico           Application icon
+```
+
+The modules that decide what the command line looks like (`build/commandline.py`,
+`build/options.py`, `system/host.py`, `system/sources.py`) do not touch Qt, so
+their behaviour can be checked with a plain test.
+
 ## Scripts
 
 | Script         | Purpose                                                   |

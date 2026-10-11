@@ -1,7 +1,7 @@
 """A small desktop front end for building Python programs with Nuitka."""
 
-from nuitka_gui.buildproc import BuildProcess
-from nuitka_gui.commandline import (
+from nuitka_gui.build.buildproc import BuildProcess
+from nuitka_gui.build.commandline import (
     BuildRequest,
     build_arguments,
     data_fields,
@@ -11,7 +11,7 @@ from nuitka_gui.commandline import (
     quote_notes,
     safe_value,
 )
-from nuitka_gui.gui import NuitkaApp
+from nuitka_gui.ui.gui import NuitkaApp
 
 __all__ = [
     'BuildProcess',

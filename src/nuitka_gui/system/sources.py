@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from nuitka_gui import safe_value
+from nuitka_gui.build.commandline import safe_value
 
 
 def main_roots(out_dir: str, launch: Path) -> list[Path]:
