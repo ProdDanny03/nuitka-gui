@@ -116,7 +116,16 @@ once, then put it somewhere on your `PATH`.
    Copy-Item .\dist\nuitka-gui.exe -Destination $gui -Force
    ```
 
-   Add `$gui` to `PATH` if it is not already there.
+   Or add that folder to your `PATH` with `path.ps1`, so the app is callable from
+   any project:
+
+   ```powershell
+   .\path.ps1 -Add C:\Users\USERPROFILE\AppData\Local\NuitkaGui
+   ```
+
+   Pass `-Remove` instead to take the folder back off `PATH`. The change is
+   written to your user `PATH` (no admin rights needed) and applies to the
+   current session immediately.
 
 ## Usage
 
@@ -176,11 +185,12 @@ their behaviour can be checked with a plain test.
 
 ## Scripts
 
-| Script       | Purpose                                            |
-| ------------ | -------------------------------------------------- |
-| `init.ps1`   | Create the `.venv` and sync dependencies.          |
-| `nuitka.ps1` | Install Nuitka into the project environment.       |
-| `build.ps1`  | Compile the GUI itself into `dist/nuitka-gui.exe`. |
+| Script       | Purpose                                                          |
+| ------------ | ---------------------------------------------------------------- |
+| `init.ps1`   | Create the `.venv` and sync dependencies.                        |
+| `nuitka.ps1` | Install Nuitka into the project environment.                     |
+| `build.ps1`  | Compile the GUI itself into `dist/nuitka-gui.exe`.               |
+| `path.ps1`   | Add (`-Add`) or remove (`-Remove`) a folder on your user `PATH`. |
 
 ## License
 
