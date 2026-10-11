@@ -50,7 +50,7 @@ once, then put it somewhere on your `PATH`.
 1. Set up the virtual environment and sync dependencies:
 
    ```powershell
-   .\init.ps
+   .\init.ps1
    ```
 
    or
