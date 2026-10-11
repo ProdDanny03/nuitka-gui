@@ -14,6 +14,8 @@ streams the output live.
   `--low-memory`, and more, with sensible defaults.
 - **Guarded C backends.** `--zig` and `--msvc=latest` cannot both be on, and
   the app warns you if they are.
+- **Optional admin elevation.** `--windows-uac-admin` makes the built exe ask
+  for admin rights through a UAC prompt every time it starts. Off by default.
 - **Data files.** Include a single file or a whole folder via
   `--include-data-files` / `--include-data-dir`, with an optional destination
   name inside the app.
