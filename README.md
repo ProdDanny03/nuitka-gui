@@ -49,18 +49,32 @@ once, then put it somewhere on your `PATH`.
 
    ```powershell
    .\init.ps1
+   # OR
+   uv venv .\.venv
+   uv sync
    ```
 
 2. Install Nuitka into the environment:
 
    ```powershell
    .\nuitka.ps1
+   # OR
+   $nuitka = Test-Path '.\.venv\Scripts\nuitka.cmd'
+   if (-not $nuitka) {
+       uv pip install pip
+       uv --no-progress run python -m pip install "Nuitka[all]"
+   } else {
+       Write-Host "nuitka is installed"
+   }
    ```
 
 3. Build the executable:
 
    ```powershell
    .\build.ps1
+   # OR
+   uv --no-progress run python -m nuitka --onefile --low-memory --remove-output --windows-console-mode=disable --zig --assume-yes-for-downloads --include-windows-runtime-dlls=yes --enable-plugin=pyside6 --windows-icon-from-ico=assets/icon.ico  --output-dir=dist --output-filename=nuitka-gui.exe .\src\nuitka_gui\main.py
+   # Replace '--zig' with '--msvc=latest' if zig throws an error
    ```
 
    This wraps Nuitka with `--onefile`, the PySide6 plugin, the app icon and the
@@ -84,6 +98,7 @@ build picks up that project's environment:
 
 ```powershell
 cd C:\path\to\the\project\to\compile 
+# Or launch terminal from project directory
 nuitka-gui
 ```
 
