@@ -5,6 +5,8 @@ A small PySide6 desktop front end for compiling Python programs with
 Nuitka command line for you, runs it in your project's `uv` environment, and
 streams the output live.
 
+![Screenshot](./screenshots/nuitka-1.png)
+
 ## Features
 
 - **One command line, built for you.** Pick your script, output folder and exe
