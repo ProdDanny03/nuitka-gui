@@ -1,4 +1,4 @@
-uv --no-progress run python -m nuitka `
+uv run nuitka `
     --onefile `
     --low-memory `
     --remove-output `
