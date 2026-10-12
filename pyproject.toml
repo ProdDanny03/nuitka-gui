@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.14"
 authors = [{ name = "ProdDanny03", email = "proddanny03@gmail.com" }]
 dependencies = [
+  "nuitka[all]>=4.3",
   "pyside6>=6.12.0",
 ]
 
@@ -13,5 +14,5 @@ dependencies = [
 nuitka-gui = "nuitka_gui.main:main"
 
 [build-system]
-requires = ["uv_build>=0.13.0,<0.14.0"]
-build-backend = "uv_build"
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
